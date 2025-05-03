@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const step = useAppSelector(selectStep);
   const movies = useAppSelector(selectSearchedMovies);
   const [loading, setLoading] = useState(false);
-
+  
   useEffect(() => {
     if (step > 0) {
       setLoading(true);
@@ -20,11 +20,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     if (step > 0) {
-      const timeout = setTimeout(() => {
-        setLoading(false);
-      }, 500);
-
-      return () => clearTimeout(timeout);
+      setLoading(false);
     }
   }, [movies]);
 
@@ -32,30 +28,20 @@ const Home: React.FC = () => {
     return <Hero />;
   }
 
-  if (loading) {
-    return (
-      <section className={styles.homeSec}>
-        <div className={styles.container}>
-          <div className={styles.grid}>
-            {Array.from({ length: 6 }).map((_, idx) => (
+  return (
+    <section className={styles.homeSec} id="home-section">
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          {loading ? (
+            Array.from({ length: 6 }).map((_, idx) => (
               <div key={idx}>
                 <Skeleton height={350} style={{ marginBottom: '1rem', borderRadius: '10px' }} />
                 <Skeleton height={20} style={{ marginBottom: '0.5rem', borderRadius: '10px' }} />
                 <Skeleton height={20} style={{ borderRadius: '10px' }} />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className={styles.homeSec}>
-      <div className={styles.container}>
-        <div className={styles.grid}>
-          {movies.length > 0 ? (
-            movies.map((movie) => movie && <MoviesCard key={movie.imdbID} movie={movie} />)
+            ))
+          ) : movies && Array.isArray(movies) && movies.length > 0 ? (
+            movies.map((movie) => movie && <MoviesCard key={movie?.imdbID} movie={movie} />)
           ) : (
             <h2>No movie found!</h2>
           )}

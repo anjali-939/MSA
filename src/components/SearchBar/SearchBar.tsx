@@ -33,13 +33,17 @@ const SearchBar = () => {
         navigate('/')
         if (query.trim()) {
             refetch();
+            const element = document.getElementById("home-section");
+            if(element){
+                element.scrollIntoView();
+            }
             if (step == 0) {
                 dispatch(updateStep(1))
             }
         }
     };
     return (
-        <div className={styles.searchMain} style={{ gap: '10px', display: 'flex',alignItems:'center' }}>
+        <div className={styles.searchMain} style={{ gap: '10px', display: 'flex', alignItems: 'center' }}>
             <FontAwesomeIcon icon={faFilm} className={styles.movieIcon} />
             <input
                 type="text"
