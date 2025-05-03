@@ -29,10 +29,7 @@ const useGetApiCall = <T extends ValueType>({
         return {} as T;
       }
 
-      console.log('Calling API:', { url, params: option?.params });
-
       const res = await getApiCallAction<T>(url, option,key==='searchedMovies'?'search':'detail');
-      console.log({res});
       
       if (res) {
         dispatch(setApiResponse({ key, value: res }));

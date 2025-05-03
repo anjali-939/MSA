@@ -42,6 +42,7 @@ const MoviesCard = ({ movie }: { movie: MovieSummary }) => {
           setIsFav(false);
         }
       } catch (e) {
+        console.log(e);
         setIsFav(false);
       }
     }
