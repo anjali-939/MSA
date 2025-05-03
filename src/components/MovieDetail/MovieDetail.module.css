@@ -1,0 +1,30 @@
+.detailMain{
+    display: flex;
+    justify-content: space-between;
+}
+.detailBottom{
+    display: flex;
+    gap: 15px;
+}
+.detailBottom p {
+    margin: 0;
+    font-size: 18px;
+}
+.flex {
+    display: flex;
+}
+.type {
+    border: 1px solid;
+    width: 89px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 7px 0;
+    margin: 10px 0;
+}
+
+.viewType {
+    border-top: 1px solid;
+    padding: 17px 0;
+    display: flex;
+    gap: 10px;
+}

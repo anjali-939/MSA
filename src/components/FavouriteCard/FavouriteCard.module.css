@@ -1,0 +1,31 @@
+.closeBtn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .closeBtn:hover {
+    transform: scale(1.2);
+  }
+  
+  .favCard {
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    position: relative;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .favImg {
+    width: 112px;
+    height: 112px;
+    border-radius: 18px 0 0 18px;
+  }
+  
+  .fadeOut {
+    opacity: 0;
+    transform: translateY(-20px);
+  }

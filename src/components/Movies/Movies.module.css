@@ -1,0 +1,60 @@
+.card {
+	box-shadow: 0 0 8px #cca7a7;
+	border-radius: 25px;
+}
+
+.cardimg img {
+	width: 100%;
+	max-height: 430px;
+	min-height: 430px;
+	border-radius: 25px 25px 0 0;
+}
+
+.cardcontent {
+	display: flex;
+	padding: 15px;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.moreBtn {
+	background-color: #3e6cd3;
+	border: none;
+	padding: 13px 0;
+	border-radius: 32px;
+	font-size: 18px;
+	width: 128px;
+	color: #fff;
+	cursor: pointer;
+}
+.moreBtn:hover {
+	background-color: #507fe4;
+
+ }
+.cardLeft {
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cardLeft .favIcon {
+	margin-bottom: 10px;
+	font-size: 23px;
+	width: 23px;
+	cursor: pointer;
+	color: #aaaaaa;
+}
+
+.cardLeft .favIcon:hover {
+	color: #e4a0a0;
+}
+  
+.cardLeft .favActive {
+	color: red;
+  }
+    
+.cardLeft .favActive:hover {
+	color: red;
+  }
+  

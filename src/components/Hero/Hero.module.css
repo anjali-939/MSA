@@ -1,0 +1,20 @@
+.heroSec{
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.heroTitle {
+    font-size: 30px;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.heroCont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
