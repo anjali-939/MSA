@@ -49,7 +49,6 @@ const SearchBar = () => {
                 type="text"
                 placeholder="Search Movies"
                 value={query}
-                defaultValue={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className={styles.searchBar}
             />

@@ -25,7 +25,6 @@ const Home: React.FC = () => {
   if (step === 0) {
     return <Hero />;
   }
-  console.log({ apiError });
 
   return (
     <section className={styles.homeSec} id="home-section">

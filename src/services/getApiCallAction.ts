@@ -11,33 +11,35 @@ async function getApiCallAction<T>(
   url: string,
   options?: AxiosRequestConfig,
   respType?: 'search' | 'detail'
-): Promise<T> {
+): Promise<T | null> {
   try {
     const response = await axios.get<OmdbApiResponse<T>>(url, options);
 
     if (response.status !== 200) {
-      throw new Error(`Unexpected response status: ${response.status}`);
+      console.warn(`Unexpected response status: ${response.status}`);
+      return null;
     }
 
     const data = response.data;
 
     if (data.Response === 'False') {
       console.warn('OMDb API responded with error:', data.Error);
-      throw new Error(data.Error || 'Unknown error from OMDb API');
+      return null;
     }
 
     if (respType === 'search') {
       if (!data.Search) {
-        throw new Error('Search results not found');
+        console.warn('Search results not found');
+        return null;
       }
       return data.Search;
     } else {
       return data as unknown as T;
     }
-  } catch (error: unknown) {
+  } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     console.error('API call error:', message);
-    throw new Error(message);
+    return null;
   }
 }
 
