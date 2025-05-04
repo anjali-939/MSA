@@ -8,3 +8,6 @@ export const selectSearchedMovies = createSelector(selectMovieState,movieState=>
 export const selectMovieDetail = createSelector(selectMovieState,movieState=>movieState.movieDetail)
 
 export const selectStep = createSelector(selectMovieState,movieState=>movieState.step)
+
+export const selectApiError = createSelector(selectMovieState,movieState=>movieState.apiError)
+

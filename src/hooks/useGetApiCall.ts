@@ -2,7 +2,7 @@ import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
 import type { AxiosRequestConfig } from 'axios';
 import getApiCallAction from '../services/getApiCallAction';
 import { KeyTypes, ValueType } from '../types';
-import { setApiResponse } from '../redux/slices/Movie/movieSlice';
+import { setApiError, setApiResponse } from '../redux/slices/Movie/movieSlice';
 import { useAppDispatch } from '../types/store.type';
 
 interface GetAPICall<T> extends Omit<UseQueryOptions<T, Error>, 'queryKey' | 'queryFn'> {
@@ -29,11 +29,15 @@ const useGetApiCall = <T extends ValueType>({
         return {} as T;
       }
 
-      const res = await getApiCallAction<T>(url, option,key==='searchedMovies'?'search':'detail');
+      const res = await getApiCallAction<T>(url, option, key === 'searchedMovies' ? 'search' : 'detail');
       
       if (res) {
         dispatch(setApiResponse({ key, value: res }));
+        dispatch(setApiError(false))
         return res;
+      }
+      else {
+        dispatch(setApiError(true))
       }
 
       return {} as T;

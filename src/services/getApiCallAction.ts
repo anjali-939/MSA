@@ -4,7 +4,7 @@ interface OmdbApiResponse<T> {
   Search?: T;
   Error?: string;
   Response: 'True' | 'False';
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 async function getApiCallAction<T>(
@@ -34,9 +34,10 @@ async function getApiCallAction<T>(
     } else {
       return data as unknown as T;
     }
-  } catch (error: any) {
-    console.error('API call error:', error);
-    throw new Error(error.message || 'API call failed');
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    console.error('API call error:', message);
+    throw new Error(message);
   }
 }
 

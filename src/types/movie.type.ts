@@ -43,6 +43,7 @@ export interface MovieSliceProps {
   searchedMovies: Partial<MovieSummary[]>
   movieDetail: Partial<MovieDetails>
   step: number
+  apiError: boolean
 }
 
 export type KeyTypes = keyof MovieSliceProps

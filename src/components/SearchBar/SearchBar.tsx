@@ -28,7 +28,7 @@ const SearchBar = () => {
         },
         enabled: false,
     });
-
+    
     const handleSearch = () => {
         navigate('/')
         if (query.trim()) {

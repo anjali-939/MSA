@@ -5,7 +5,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 const initialState: MovieSliceProps = {
   searchedMovies: [],
   movieDetail: {},
-  step: 0
+  step: 0,
+  apiError:false
 }
 
 export const movieSlice = createSlice({
@@ -22,10 +23,13 @@ export const movieSlice = createSlice({
     },
     updateStep(state, action: PayloadAction<number>) {
       state.step = action.payload
+    },
+    setApiError(state,action:PayloadAction<boolean>){
+      state.apiError = action.payload
     }
   }
 })
 
-export const { setApiResponse, updateStep } = movieSlice.actions
+export const { setApiResponse, updateStep ,setApiError} = movieSlice.actions
 
 export default movieSlice
